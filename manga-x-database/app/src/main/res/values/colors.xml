@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary">#673AB7</color>
+    <color name="primaryDark">#512DA8</color>
+    <color name="accent">#FF9800</color>
+
+    <color name="foreground">#DD000000</color>
+    <color name="foregroundSecondary">#89000000</color>
+    <color name="foregroundOnDark">#FFFFFF</color>
+    <color name="foregroundSecondaryOnDark">#B2FFFFFF</color>
+
+    <color name="favorite">#e91e63</color>
+    <color name="seen">#4caf50</color>
+    <color name="stored">#ff9800</color>
+
+    <color name="defaultOutlineAmbientShadowColor">#0A000000</color>
+    <color name="defaultOutlineSpotShadowColor">#30000000</color>
+
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="types">
+        <item>@string/anime</item>
+        <item>@string/movie</item>
+        <item>@string/manga</item>
+        <item>@string/manhua</item>
+        <item>@string/manhwa</item>
+    </array>
+
+    <array name="demographies">
+        <item>@string/shounen</item>
+        <item>@string/shoujo</item>
+        <item>@string/seinen</item>
+        <item>@string/josei</item>
+        <item>@string/kodomo</item>
+    </array>
+
+    <array name="states">
+        <item>@string/on_air</item>
+        <item>@string/finished</item>
+    </array>
+
+    <array name="genres">
+        <item>@string/action</item>
+        <item>@string/adventure</item>
+        <item>@string/cars</item>
+        <item>@string/comedy</item>
+        <item>@string/dementia</item>
+        <item>@string/demons</item>
+        <item>@string/mystery</item>
+        <item>@string/drama</item>
+        <item>@string/fantasy</item>
+        <item>@string/game</item>
+        <item>@string/historical</item>
+        <item>@string/horror</item>
+        <item>@string/kids</item>
+        <item>@string/magic</item>
+        <item>@string/martial_arts</item>
+        <item>@string/mecha</item>
+        <item>@string/music</item>
+        <item>@string/parody</item>
+        <item>@string/samurai</item>
+        <item>@string/romance</item>
+        <item>@string/school</item>
+        <item>@string/sci_fi</item>
+        <item>@string/space</item>
+        <item>@string/sports</item>
+        <item>@string/super_power</item>
+        <item>@string/vampire</item>
+        <item>@string/slice_of_life</item>
+        <item>@string/supernatural</item>
+        <item>@string/military</item>
+        <item>@string/police</item>
+        <item>@string/psychological</item>
+        <item>@string/doujinshi</item>
+        <item>@string/gender_bender</item>
+        <item>@string/thriller</item>
+    </array>
+
+    <array name="relationships">
+        <item>@string/prequel</item>
+        <item>@string/sequel</item>
+        <item>@string/side_story</item>
+        <item>@string/alternative_version</item>
+        <item>@string/alternative_setting</item>
+        <item>@string/spin_off</item>
+    </array>
+
+</resources>

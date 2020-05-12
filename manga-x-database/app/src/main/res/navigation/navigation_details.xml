@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_details"
+    app:startDestination="@+id/dummyFragment">
+
+    <fragment
+        android:id="@+id/dummyFragment"
+        android:name="org.xapps.apps.mangaxdatabase.views.fragments.DummyFragment"
+        android:label="fragment_dummy"
+        tools:layout="@layout/fragment_dummy" >
+        <action
+            android:id="@+id/action_dummyFragment_to_referenceEditionFragment"
+            app:destination="@id/referenceEditionFragment"
+            app:popUpTo="@id/dummyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_dummyFragment_to_referenceDetailsFragment"
+            app:destination="@id/referenceDetailsFragment"
+            app:popUpTo="@id/dummyFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/referenceEditionFragment"
+        android:name="org.xapps.apps.mangaxdatabase.views.fragments.ReferenceEditionFragment"
+        android:label="fragment_reference_edition"
+        tools:layout="@layout/fragment_reference_edition" />
+    <fragment
+        android:id="@+id/referenceDetailsFragment"
+        android:name="org.xapps.apps.mangaxdatabase.views.fragments.ReferenceDetailsFragment"
+        android:label="fragment_reference_details"
+        tools:layout="@layout/fragment_reference_details" >
+        <argument
+            android:name="referenceId"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_referenceDetailsFragment_to_referenceEditionFragment"
+            app:destination="@id/referenceEditionFragment" />
+    </fragment>
+</navigation>

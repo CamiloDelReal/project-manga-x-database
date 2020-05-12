@@ -1,0 +1,62 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+        <!--        <item name="android:windowDrawsSystemBarBackgrounds">true</item>-->
+        <!--        <item name="android:statusBarColor">@color/primaryDark</item>-->
+
+    </style>
+
+    <style name="AppTheme.Details" parent="AppTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="AppTheme.TextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeWidth">@dimen/_1sdp</item>
+        <item name="boxStrokeWidthFocused">@dimen/_1sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_3sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_3sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_3sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_3sdp</item>
+    </style>
+
+    <style name="AppTheme.ComboBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeWidth">@dimen/_1sdp</item>
+        <item name="boxStrokeWidthFocused">@dimen/_1sdp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_3sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_3sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_3sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_3sdp</item>
+    </style>
+
+    <style name="AppTheme.FlatOutlinedCardView">
+        <item name="cardCornerRadius">@dimen/_3sdp</item>
+        <item name="android:padding">0dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">@dimen/_1sdp</item>
+        <item name="strokeColor">@color/selector_stroke_outline_cardview</item>
+    </style>
+    
+    <style name="AppTheme.SwitchStored" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="useMaterialThemeColors">false</item>
+        <item name="colorAccent">@color/stored</item>
+    </style>
+
+    <style name="AppTheme.SwitchHasBeenSeen" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="useMaterialThemeColors">false</item>
+        <item name="colorAccent">@color/seen</item>
+    </style>
+
+    <style name="AppTheme.SwitchFavorite" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="useMaterialThemeColors">false</item>
+        <item name="colorAccent">@color/favorite</item>
+    </style>
+
+    <style name="AppTheme.Genre.Chip" parent="Widget.MaterialComponents.Chip.Choice" />
+
+</resources>

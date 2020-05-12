@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="referenceWrapper"
+            type="org.xapps.apps.mangaxdatabase.services.models.ReferenceItemSummary" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnItem"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="0dp"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_2sdp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        tools:cardUseCompatPadding="false">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgPoster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:portraitPosterId="@{referenceWrapper.reference.portraitPosterId}"
+            tools:src="@mipmap/poster_3" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/ic_fg_gradient_item_summary"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingTop="@dimen/_40sdp"
+            android:paddingEnd="0dp"
+            android:paddingBottom="@dimen/_8sdp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lblTitle"
+                style="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="@{referenceWrapper.reference.title}"
+                android:textColor="@color/foregroundOnDark"
+                tools:text="Overlord II" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_2sdp" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical|end"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/lblType"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{referenceWrapper.type.value}"
+                    android:textColor="@color/foregroundOnDark"
+                    tools:text="Anime" />
+
+                <Space
+                    android:layout_width="@dimen/_2sdp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/lblEvaluation"
+                    style="@style/TextAppearance.MaterialComponents.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_bg_evaluation"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_1sdp"
+                    android:paddingEnd="@dimen/_4sdp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    android:text="@{String.valueOf(referenceWrapper.reference.evaluation)}"
+                    android:textColor="@color/foregroundOnDark"
+                    tools:text="4.5" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
