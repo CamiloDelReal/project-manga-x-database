@@ -18,7 +18,6 @@
         android:clickable="true"
         android:focusable="true"
         android:padding="0dp"
-        app:cardBackgroundColor="#fff"
         app:cardCornerRadius="@dimen/_10sdp"
         app:cardElevation="@dimen/_3sdp"
         app:cardPreventCornerOverlap="true"
@@ -36,7 +35,7 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.4" />
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <ImageView
                 android:id="@+id/imgPoster"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -48,7 +47,7 @@
                 tools:src="@mipmap/poster_7"
                 app:portraitPosterId="@{referenceWrapper.reference.portraitPosterId}" />
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="@dimen/_8sdp"
@@ -60,92 +59,90 @@
                 app:layout_constraintStart_toEndOf="@id/vert40"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <com.google.android.material.textview.MaterialTextView
+                    <TextView
                         android:id="@+id/lblTitle"
                         style="@style/TextAppearance.MaterialComponents.Body1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@{referenceWrapper.reference.title}"
-                        android:textColor="@color/foreground"
                         tools:text="Overlord II" />
 
                     <Space
                         android:layout_width="@dimen/_2sdp"
                         android:layout_height="wrap_content" />
 
-                    <com.google.android.material.textview.MaterialTextView
+                    <TextView
                         android:id="@+id/lblEvaluation"
                         style="@style/TextAppearance.MaterialComponents.Caption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
                         android:background="@drawable/ic_bg_evaluation"
                         android:paddingStart="@dimen/_5sdp"
                         android:paddingTop="@dimen/_1sdp"
                         android:paddingEnd="@dimen/_4sdp"
                         android:paddingBottom="@dimen/_1sdp"
                         android:text="@{String.valueOf(referenceWrapper.reference.evaluation)}"
-                        android:textColor="@color/foregroundOnDark"
+                        android:textColor="?attr/colorOnPrimarySurface"
                         tools:text="4.5" />
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_2sdp" />
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <com.google.android.material.textview.MaterialTextView
+                    <TextView
                         android:id="@+id/lblType"
                         style="@style/TextAppearance.MaterialComponents.Caption"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Anime"
-                        android:textColor="@color/foreground" />
+                        android:text="@{referenceWrapper.type.value}"
+                        tools:text="@string/anime" />
 
                     <Space
                         android:layout_width="@dimen/_2sdp"
                         android:layout_height="wrap_content" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:layout_width="@dimen/_16sdp"
                         android:layout_height="@dimen/_16sdp"
                         tools:src="@drawable/ic_folder_24dp"
                         android:src="@{referenceWrapper.reference.stored ? @drawable/ic_folder_24dp : @drawable/ic_folder_outline_24dp}"/>
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:layout_width="@dimen/_16sdp"
                         android:layout_height="@dimen/_16sdp"
                         tools:src="@drawable/ic_eye_24dp"
                         android:src="@{referenceWrapper.reference.hasBeenSeen ? @drawable/ic_eye_24dp : @drawable/ic_eye_outline_24dp}"/>
 
-                    <androidx.appcompat.widget.AppCompatImageView
+                    <ImageView
                         android:layout_width="@dimen/_16sdp"
                         android:layout_height="@dimen/_16sdp"
                         tools:src="@drawable/ic_heart_outline_24dp"
                         android:src="@{referenceWrapper.reference.favorite ? @drawable/ic_heart_24dp : @drawable/ic_heart_outline_24dp}"/>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_2sdp" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/lblGenres"
                     style="@style/TextAppearance.MaterialComponents.Caption"
                     android:layout_width="match_parent"
@@ -154,14 +151,13 @@
                     android:layout_weight="1"
                     android:maxLines="2"
                     app:genres="@{referenceWrapper.genres}"
-                    tools:text="Adventure, Fantasy, Games, Magic, Supernatural"
-                    android:textColor="@color/foreground" />
+                    tools:text="Adventure, Fantasy, Games, Magic, Supernatural" />
 
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/_2sdp" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/lblAuthors"
                     style="@style/TextAppearance.MaterialComponents.Caption"
                     android:layout_width="match_parent"
@@ -169,10 +165,9 @@
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:maxLines="1"
                     app:authors="@{referenceWrapper.authors}"
-                    tools:text="Kugane Maruyama"
-                    android:textColor="@color/foreground" />
+                    tools:text="Kugane Maruyama" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

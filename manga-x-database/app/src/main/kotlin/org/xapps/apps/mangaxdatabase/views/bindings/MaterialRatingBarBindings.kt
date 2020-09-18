@@ -1,7 +1,6 @@
-package org.xapps.apps.mangaxdatabase.views.custom
+package org.xapps.apps.mangaxdatabase.views.bindings
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.View
 import androidx.databinding.BindingAdapter
 import me.zhanghai.android.materialratingbar.MaterialRatingBar

@@ -8,7 +8,8 @@
     <item
         android:id="@+id/actionMore"
         android:icon="@drawable/ic_more_vert_24dp"
-        android:title="@string/title_more"
+        android:title="@string/more"
+        app:iconTint="?attr/colorOnPrimarySurface"
         app:showAsAction="always">
 
         <menu>
@@ -16,22 +17,22 @@
             <item
                 android:id="@+id/actionSearch"
                 android:icon="@drawable/ic_search_24dp"
-                android:title="@string/title_search"
-                app:iconTint="@color/foregroundSecondary"
+                android:title="@string/search"
+                app:iconTint="?attr/colorOnSurface"
                 app:showAsAction="never" />
 
             <item
                 android:id="@+id/actionSettings"
                 android:icon="@drawable/ic_settings_outline_24dp"
-                android:title="@string/title_settings"
-                app:iconTint="@color/foregroundSecondary"
+                android:title="@string/settings"
+                app:iconTint="?attr/colorOnSurface"
                 app:showAsAction="never" />
 
             <item
                 android:id="@+id/actionAbout"
                 android:icon="@drawable/ic_about_outline_24dp"
-                android:title="@string/title_about"
-                app:iconTint="@color/foregroundSecondary"
+                android:title="@string/about"
+                app:iconTint="?attr/colorOnSurface"
                 app:showAsAction="never" />
 
         </menu>

@@ -37,6 +37,7 @@ data class ReferenceDetails(
         entityColumn = "genre_id",
         associateBy = Junction(ReferenceGenre::class)
     )
+    @Bindable
     var genres: List<Genre>? = null,
 
     @Relation(

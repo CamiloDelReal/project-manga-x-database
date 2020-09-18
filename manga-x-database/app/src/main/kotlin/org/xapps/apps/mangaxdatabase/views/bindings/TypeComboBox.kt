@@ -1,8 +1,7 @@
-package org.xapps.apps.mangaxdatabase.views.custom
+package org.xapps.apps.mangaxdatabase.views.bindings
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter

@@ -1,4 +1,4 @@
-package org.xapps.apps.mangaxdatabase.views.custom
+package org.xapps.apps.mangaxdatabase.views.bindings
 
 import android.content.Context
 import android.util.AttributeSet
@@ -16,6 +16,7 @@ import org.xapps.apps.mangaxdatabase.services.models.Genre
 class GenreChipGroup : ChipGroup {
 
     var listener: InverseBindingListener? = null
+    var pendingSelection: List<Genre>? = null
 
     constructor(context: Context) : this(context, null)
 
@@ -48,30 +49,46 @@ object GenreChipGroupBindings {
         }
         set(values) {
             val newValues = values ?: ArrayList()
-            for (i in 0 until childCount)
-                (getChildAt(i) as Chip).isChecked = false
-            newValues.forEach {
-                val chip = findViewWithTag<Chip>(it)
-                chip.isChecked = true
+
+            if (childCount > 0) {
+                for (i in 0 until childCount)
+                    (getChildAt(i) as Chip).isChecked = false
+
+                newValues.forEach {
+                    val chip = findViewWithTag<Chip>(it)
+                    chip.isChecked = true
+                }
+            } else {
+                pendingSelection = newValues
             }
         }
 
     @JvmStatic
-    @BindingAdapter("entries")
-    fun setEntries(view: GenreChipGroup, entries: List<Genre>?) {
+    @BindingAdapter(value = ["entries", "checkable"], requireAll = false)
+    fun setEntries(view: GenreChipGroup, entries: List<Genre>?, checkable: Boolean = false) {
+        Log.i("AppLogger", "Chip entries")
+        view.removeAllViews()
         entries?.let {
+            val layout = if (checkable)
+                R.layout.item_chip_choice
+            else
+                R.layout.item_chip
             entries.forEach {
-                val chip = LayoutInflater.from(view.context)
-                    .inflate(R.layout.item_chip_choice, view, false) as Chip
+                val chip = LayoutInflater.from(view.context).inflate(layout, view, false) as Chip
                 chip.text = it.value
                 chip.tag = it
-                chip.setOnCheckedChangeListener { _, _ ->
-                    view.listener?.apply {
-                        onChange()
+                if(checkable) {
+                    chip.setOnCheckedChangeListener { _, _ ->
+                        view.listener?.apply {
+                            onChange()
+                        }
                     }
+                    if (view.pendingSelection != null && view.pendingSelection!!.contains(it))
+                        chip.isChecked = true
                 }
                 view.addView(chip)
             }
         }
+//        view.pendingSelection = null
     }
 }

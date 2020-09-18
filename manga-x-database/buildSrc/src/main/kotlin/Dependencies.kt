@@ -174,7 +174,7 @@ object Libraries {
         private const val LOOPING_VIEW_PAGER_VERSION = "1.3.1"
         private const val PAGE_INDICATOR_VIEW_VERSION = "1.0.3"
         private const val PICASSO_VERSION = "2.71828"
-        private const val UCROP_VERSION = "2.2.4-native"
+        private const val UCROP_VERSION = "2.2.5-native"
         private const val MP_ANDROID_CHART_VERSION = "3.1.0"
         private const val FLOW_LAYOUT_VERSION = "0.4.1"
         private const val PROGRESS_BUTTON_VERSION = "2.1.0"
@@ -198,6 +198,13 @@ object Libraries {
         const val OVERSCROLL_DECOR = "me.everything:overscroll-decor-android:$OVERSCROLL_DECOR_VERSION"
         const val FILE_PICKER = "com.droidninja:filepicker:$FILE_PICKER_VERSION"
         const val MATERIAL_RATING = "me.zhanghai.android.materialratingbar:library:$MATERIAL_RATING_VERSION"
+    }
+
+    object Glide {
+        private const val GLIDE_VERSION = "4.11.0"
+
+        const val GLIDE = "com.github.bumptech.glide:glide:$GLIDE_VERSION"
+        const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:$GLIDE_VERSION"
     }
 
     object QRs {

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <color name="primary">#673AB7</color>
     <color name="primaryDark">#512DA8</color>
     <color name="accent">#FF9800</color>
 
-    <color name="foreground">#DD000000</color>
-    <color name="foregroundSecondary">#89000000</color>
-    <color name="foregroundOnDark">#FFFFFF</color>
-    <color name="foregroundSecondaryOnDark">#B2FFFFFF</color>
-
     <color name="favorite">#e91e63</color>
     <color name="seen">#4caf50</color>
     <color name="stored">#ff9800</color>
+
+    <color name="ucrop_color_toolbar" tools:override="true">@color/primary</color>
+    <color name="ucrop_color_statusbar" tools:override="true">@color/primaryDark</color>
+<!--    <color name="ucrop_color_toolbar_widget" tools:override="true">?attr/colorOnPrimarySurface</color>-->
+    <color name="ucrop_color_toolbar_widget" tools:override="true">@android:color/primary_text_dark</color>
+    <color name="ucrop_color_blaze_orange" tools:override="true">@color/accent</color>
 
     <color name="defaultOutlineAmbientShadowColor">#0A000000</color>
     <color name="defaultOutlineSpotShadowColor">#30000000</color>

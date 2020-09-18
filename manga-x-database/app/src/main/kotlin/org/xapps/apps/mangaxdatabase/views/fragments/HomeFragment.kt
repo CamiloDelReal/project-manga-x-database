@@ -60,8 +60,8 @@ class HomeFragment @Inject constructor() : Fragment() {
             )
         )
         val titles = listOf(
-            getString(R.string.title_summary),
-            getString(R.string.title_listing)
+            getString(R.string.summary),
+            getString(R.string.listing)
         )
         val icons = listOf(
             R.drawable.ic_summary_24dp,
@@ -90,18 +90,18 @@ class HomeFragment @Inject constructor() : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        return when (item.itemId) {
             R.id.actionSearch -> {
-                return true
+                true
             }
             R.id.actionSettings -> {
-                return true
+                true
             }
             R.id.actionAbout -> {
-                return true
+                true
             }
             else -> {
-                return super.onOptionsItemSelected(item)
+                super.onOptionsItemSelected(item)
             }
         }
     }

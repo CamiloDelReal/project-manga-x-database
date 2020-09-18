@@ -13,6 +13,7 @@ import org.xapps.apps.mangaxdatabase.R
 import org.xapps.apps.mangaxdatabase.services.local.*
 import org.xapps.apps.mangaxdatabase.services.models.*
 import org.xapps.apps.mangaxdatabase.services.settings.SettingsService
+import org.xapps.apps.mangaxdatabase.services.utils.PathUtils
 import javax.inject.Inject
 
 
@@ -33,6 +34,12 @@ class SplashViewModel @Inject constructor(
     fun initialize() {
         if(settings.isFirstTime()) {
             val disposable = Single.fromCallable {
+                // Prepare app data folders
+                val tempFolder = PathUtils.appTempFolderPath(context)
+                val postersFolder = PathUtils.appPostersFolderPath(context)
+                PathUtils.prepareFolders(tempFolder)
+                PathUtils.prepareFolders(postersFolder)
+
                 // Create default Types
                 val typeValues = context.resources.getStringArray(R.array.types)
                 for(i in typeValues.indices)
@@ -61,6 +68,7 @@ class SplashViewModel @Inject constructor(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
+                    settings.setIsFirstTime(false)
                     initializedEmitter.postValue(true)
                 }, {
                     it.printStackTrace()

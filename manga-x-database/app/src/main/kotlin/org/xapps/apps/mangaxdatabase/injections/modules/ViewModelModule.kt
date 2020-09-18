@@ -18,31 +18,36 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(SplashViewModel::class)
-    abstract fun bindSplashViewModel(splashViewModel: SplashViewModel): ViewModel
+    abstract fun bindSplashViewModel(viewModel: SplashViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
-    abstract fun bindSHomeViewModel(homeViewModel: HomeViewModel): ViewModel
+    abstract fun bindSHomeViewModel(viewModel: HomeViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(SummaryViewModel::class)
-    abstract fun bindSummaryViewModel(summaryViewModel: SummaryViewModel): ViewModel
+    abstract fun bindSummaryViewModel(viewModel: SummaryViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(ListingViewModel::class)
-    abstract fun bindListingViewModel(listingViewModel: ListingViewModel): ViewModel
+    abstract fun bindListingViewModel(viewModel: ListingViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(ReferenceDetailsViewModel::class)
-    abstract fun bindReferenceDetailsViewModel(referenceDetailsViewModel: ReferenceDetailsViewModel): ViewModel
+    abstract fun bindReferenceDetailsViewModel(viewModel: ReferenceDetailsViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(ReferenceEditionViewModel::class)
-    abstract fun bindReferenceEditionViewModel(referenceEditionViewModel: ReferenceEditionViewModel): ViewModel
+    abstract fun bindReferenceEditionViewModel(viewModel: ReferenceEditionViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(GenresChooserBottomSheetDialogViewModel::class)
+    abstract fun bindGenresChooserBottomSheetDialogViewModel(viewModel: GenresChooserBottomSheetDialogViewModel): ViewModel
 
 }

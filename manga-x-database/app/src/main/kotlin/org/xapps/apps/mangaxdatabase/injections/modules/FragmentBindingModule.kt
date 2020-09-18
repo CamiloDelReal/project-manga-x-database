@@ -26,6 +26,9 @@ abstract class FragmentBindingModule {
     @ContributesAndroidInjector
     abstract fun navHostFragmentInjector(): InjectingNavHostFragment
 
+    @ContributesAndroidInjector
+    abstract fun contributeGenresChooserBottomSheetDialogFragmentInjector(): GenresChooserBottomSheetDialogFragment
+
     @Binds
     abstract fun bindFragmentFactory(factory: InjectingFragmentFactory): FragmentFactory
 

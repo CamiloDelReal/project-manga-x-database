@@ -25,13 +25,13 @@
             app:menu="@menu/menu_home"
             app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:orientation="horizontal">
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     style="@style/TextAppearance.MaterialComponents.Headline6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -46,7 +46,7 @@
                     android:background="@android:color/transparent"
                     app:tabGravity="fill"
                     app:tabIconTint="@color/selector_home_tabs_foreground"
-                    app:tabIndicatorColor="@color/foregroundOnDark"
+                    app:tabIndicatorColor="?attr/colorOnPrimarySurface"
                     app:tabInlineLabel="true"
                     app:tabMaxWidth="0dp"
                     app:tabMode="fixed"
@@ -56,17 +56,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:icon="@drawable/ic_summary_24dp"
-                        android:text="@string/title_summary" />
+                        android:text="@string/summary" />
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:icon="@drawable/ic_listing_24dp"
-                        android:text="@string/title_listing" />
+                        android:text="@string/listing" />
 
                 </com.google.android.material.tabs.TabLayout>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
 
         </com.google.android.material.appbar.MaterialToolbar>
 
@@ -87,7 +87,7 @@
         app:backgroundTint="@color/accent"
         app:fabSize="normal"
         app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
-        app:tint="@color/foregroundOnDark"
+        app:tint="?attr/colorOnPrimarySurface"
         app:useCompatPadding="true" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

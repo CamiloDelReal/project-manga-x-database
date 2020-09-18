@@ -19,7 +19,7 @@ import org.xapps.apps.mangaxdatabase.services.models.*
         State::class,
         Type::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class LocalStorageService : RoomDatabase() {
@@ -33,5 +33,15 @@ abstract class LocalStorageService : RoomDatabase() {
     abstract fun genreDao(): GenreDao
 
     abstract fun relationshipDao(): RelationshipDao
+
+    abstract fun landscapePosterDao(): LandscapePosterDao
+
+    abstract fun portraitPosterDao(): PortraitPosterDao
+
+    abstract fun referenceDao(): ReferenceDao
+
+    abstract fun referenceGenreDao(): ReferenceGenreDao
+
+    abstract fun referenceAuthorDao(): ReferenceAuthorDao
 
 }

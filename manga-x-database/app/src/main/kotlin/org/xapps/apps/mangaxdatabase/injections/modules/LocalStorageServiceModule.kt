@@ -45,4 +45,29 @@ class LocalStorageServiceModule {
     fun provideRelationshipDao(service: LocalStorageService): RelationshipDao =
         service.relationshipDao()
 
+    @Singleton
+    @Provides
+    fun provideLandscapePosterDao(service: LocalStorageService): LandscapePosterDao =
+        service.landscapePosterDao()
+
+    @Singleton
+    @Provides
+    fun providePortraitPosterDao(service: LocalStorageService): PortraitPosterDao =
+        service.portraitPosterDao()
+
+    @Singleton
+    @Provides
+    fun provideReferenceDao(service: LocalStorageService): ReferenceDao =
+        service.referenceDao()
+
+    @Singleton
+    @Provides
+    fun provideReferenceGenreDao(service: LocalStorageService): ReferenceGenreDao =
+        service.referenceGenreDao()
+
+    @Singleton
+    @Provides
+    fun provideReferenceAuthorDao(service: LocalStorageService): ReferenceAuthorDao =
+        service.referenceAuthorDao()
+
 }

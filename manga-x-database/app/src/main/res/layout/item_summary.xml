@@ -24,7 +24,7 @@
         app:cardUseCompatPadding="true"
         tools:cardUseCompatPadding="false">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/imgPoster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -32,7 +32,7 @@
             app:portraitPosterId="@{referenceWrapper.reference.portraitPosterId}"
             tools:src="@mipmap/poster_3" />
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -43,57 +43,56 @@
             android:paddingEnd="0dp"
             android:paddingBottom="@dimen/_8sdp">
 
-            <com.google.android.material.textview.MaterialTextView
+            <TextView
                 android:id="@+id/lblTitle"
                 style="@style/TextAppearance.MaterialComponents.Subtitle1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
                 android:text="@{referenceWrapper.reference.title}"
-                android:textColor="@color/foregroundOnDark"
+                android:textColor="@android:color/primary_text_dark"
                 tools:text="Overlord II" />
 
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_2sdp" />
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical|end"
                 android:orientation="horizontal">
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/lblType"
                     style="@style/TextAppearance.MaterialComponents.Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{referenceWrapper.type.value}"
-                    android:textColor="@color/foregroundOnDark"
+                    android:textColor="@android:color/primary_text_dark"
                     tools:text="Anime" />
 
                 <Space
                     android:layout_width="@dimen/_2sdp"
                     android:layout_height="wrap_content" />
 
-                <com.google.android.material.textview.MaterialTextView
+                <TextView
                     android:id="@+id/lblEvaluation"
                     style="@style/TextAppearance.MaterialComponents.Caption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
                     android:background="@drawable/ic_bg_evaluation"
                     android:paddingStart="@dimen/_5sdp"
                     android:paddingTop="@dimen/_1sdp"
                     android:paddingEnd="@dimen/_4sdp"
                     android:paddingBottom="@dimen/_1sdp"
                     android:text="@{String.valueOf(referenceWrapper.reference.evaluation)}"
-                    android:textColor="@color/foregroundOnDark"
+                    android:textColor="@android:color/primary_text_dark"
                     tools:text="4.5" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </LinearLayout>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

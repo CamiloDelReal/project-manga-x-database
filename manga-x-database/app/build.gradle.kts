@@ -158,6 +158,14 @@ dependencies {
     implementation(Libraries.UI.SPINKIT)
     implementation(Libraries.UI.FILE_PICKER)
     implementation(Libraries.UI.MATERIAL_RATING)
+    implementation(Libraries.UI.MATERIAL_PROGRESS_BAR)
+
+    // Permissions
+    implementation(Libraries.Permissions.DEXTER)
+
+    // Glide
+    implementation(Libraries.Glide.GLIDE)
+    kapt(Libraries.Glide.GLIDE_COMPILER)
 
     // Test
 //    implementation(Test.Junit)

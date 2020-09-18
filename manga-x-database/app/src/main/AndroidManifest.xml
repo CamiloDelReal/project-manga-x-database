@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.xapps.apps.mangaxdatabase">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".application.ApplicationManager"
         android:allowBackup="true"
@@ -22,7 +25,18 @@
             android:name=".views.activities.ReferenceActivity"
             android:theme="@style/AppTheme.Details" />
         <activity
-            android:name="com.yalantis.ucrop.UCropActivity" />
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:theme="@style/AppTheme"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

@@ -57,6 +57,28 @@
         <item name="colorAccent">@color/favorite</item>
     </style>
 
-    <style name="AppTheme.Genre.Chip" parent="Widget.MaterialComponents.Chip.Choice" />
+    <style name="AppTheme.SheetToolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="android:tint">?attr/colorOnPrimarySurface</item>
+    </style>
+
+    <style name="LibAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>c
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+<!--    <style name="AppTheme.FilePicker.TabLayout" parent="Widget.Design.TabLayout">-->
+    <style name="PickerTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabBackground">@color/primary</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMaxWidth">0dp</item>
+    </style>
+
+    <style name="SmoothCheckBoxStyle">
+        <item name="color_checked">@color/accent</item>
+        <item name="color_unchecked">@android:color/white</item>
+        <item name="color_unchecked_stroke">@color/checkbox_unchecked_color</item>
+        <item name="color_tick">@android:color/white</item>
+    </style>
 
 </resources>

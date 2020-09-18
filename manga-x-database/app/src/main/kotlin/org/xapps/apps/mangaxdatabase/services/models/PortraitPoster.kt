@@ -11,6 +11,6 @@ data class PortraitPoster(
     @ColumnInfo(name = "id")
     val id: Long = 0,
 
-    @ColumnInfo(name = "data")
-    var data: String
+    @ColumnInfo(name = "path")
+    var path: String
 )

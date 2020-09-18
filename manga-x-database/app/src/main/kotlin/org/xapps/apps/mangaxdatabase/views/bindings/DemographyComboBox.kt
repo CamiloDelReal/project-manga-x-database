@@ -1,4 +1,4 @@
-package org.xapps.apps.mangaxdatabase.views.custom
+package org.xapps.apps.mangaxdatabase.views.bindings
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,12 +8,12 @@ import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import com.google.android.material.textfield.MaterialAutoCompleteTextView
 import org.xapps.apps.mangaxdatabase.R
-import org.xapps.apps.mangaxdatabase.services.models.State
+import org.xapps.apps.mangaxdatabase.services.models.Demography
 
 
-class StateComboBox : MaterialAutoCompleteTextView {
+class DemographyComboBox : MaterialAutoCompleteTextView {
 
-    var selectedItem: State? = null
+    var selectedItem: Demography? = null
 
     constructor(context: Context) : this(context, null)
 
@@ -23,14 +23,14 @@ class StateComboBox : MaterialAutoCompleteTextView {
 
 }
 
-object StateComboBoxBindings {
+object DemographyComboBoxBindings {
 
     @JvmStatic
     @BindingAdapter("valueAttrChanged")
-    fun setListener(view: StateComboBox, listener: InverseBindingListener?) {
+    fun setListener(view: DemographyComboBox, listener: InverseBindingListener?) {
         listener?.let {
             view.setOnItemClickListener { parent, _, position, _ ->
-                view.selectedItem = parent.adapter.getItem(position) as State
+                view.selectedItem = parent.adapter.getItem(position) as Demography
                 listener.onChange()
             }
         }
@@ -38,21 +38,21 @@ object StateComboBoxBindings {
 
 //    @JvmStatic
 //    @BindingAdapter(value = ["value"])
-//    fun setValue(view: BindingAutoCompleteTextView, state: State) {
-//        view.selectedItem = state
-//        view.setText(state.toString(), false)
+//    fun setValue(view: BindingAutoCompleteTextView, demography: Demography) {
+//        view.selectedItem = demography
+//        view.setText(demography.toString(), false)
 //    }
 //
 //    @JvmStatic
 //    @InverseBindingAdapter(attribute = "value")
-//    fun getValue(view: BindingAutoCompleteTextView): State? {
+//    fun getValue(view: BindingAutoCompleteTextView): Demography? {
 //        return view.selectedItem
 //    }
 
     @JvmStatic
     @get:InverseBindingAdapter(attribute = "value")
     @set:BindingAdapter("value")
-    var StateComboBox.selectedValue: State?
+    var DemographyComboBox.selectedValue: Demography?
         get() {
             return selectedItem
         }
@@ -65,7 +65,7 @@ object StateComboBoxBindings {
 
     @JvmStatic
     @BindingAdapter("entries")
-    fun setEntries(view: StateComboBox, entries: List<State>?) {
+    fun setEntries(view: DemographyComboBox, entries: List<Demography>?) {
         entries?.let {
             val arrayAdapter = ArrayAdapter(view.context, R.layout.item_combobox_simple, entries)
             arrayAdapter.setDropDownViewResource(R.layout.item_combobox_dropdown_simple)

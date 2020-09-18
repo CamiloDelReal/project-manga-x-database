@@ -2,6 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
     android:enterFadeDuration="@android:integer/config_shortAnimTime"
     android:exitFadeDuration="@android:integer/config_shortAnimTime">
-    <item android:color="@color/foregroundOnDark" android:state_selected="true" />
-    <item android:color="@color/foregroundSecondaryOnDark" />
+    <item android:color="?attr/colorOnPrimarySurface" android:state_selected="true" />
+    <item android:color="?attr/colorOnPrimarySurface" android:alpha="0.6" />
 </selector>

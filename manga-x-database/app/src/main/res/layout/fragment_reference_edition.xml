@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="org.xapps.apps.mangaxdatabase.viewmodels.ReferenceEditionViewModel" />
@@ -58,15 +60,15 @@
                         app:cardBackgroundColor="@android:color/transparent"
                         app:cardElevation="0dp">
 
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="@dimen/_64sdp"
                             android:layout_height="@dimen/_64sdp"
                             android:layout_gravity="center"
                             android:alpha="0.3"
-                            android:tint="?attr/colorOnPrimary"
+                            android:tint="?attr/colorOnPrimarySurface"
                             app:srcCompat="@drawable/ic_image_search_24dp" />
 
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:id="@+id/imgLandscapePoster"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -82,9 +84,19 @@
                     android:layout_height="?attr/actionBarSize"
                     android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
                     app:layout_collapseMode="pin"
-                    app:navigationIcon="@drawable/ic_close_24dp"
                     app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light" />
 
+                <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                    android:id="@+id/progressBar"
+                    style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_3sdp"
+                    android:layout_gravity="bottom"
+                    android:indeterminate="true"
+                    android:visibility="@{viewModel.isWorking ? View.VISIBLE : View.GONE}"
+                    app:layout_collapseMode="pin"
+                    app:mpb_progressStyle="horizontal"
+                    app:mpb_useIntrinsicPadding="false" />
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
@@ -94,7 +106,7 @@
             android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -119,7 +131,7 @@
                         android:text="@={viewModel.referenceDetails.reference.title}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp"
@@ -135,7 +147,7 @@
                         android:clickable="true"
                         android:focusable="true">
 
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:layout_width="@dimen/_40sdp"
                             android:layout_height="@dimen/_40sdp"
                             android:layout_gravity="center"
@@ -143,7 +155,7 @@
                             android:tint="?attr/colorOnSurface"
                             app:srcCompat="@drawable/ic_image_search_24dp" />
 
-                        <androidx.appcompat.widget.AppCompatImageView
+                        <ImageView
                             android:id="@+id/imgPortraintPoster"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -151,7 +163,7 @@
 
                     </com.google.android.material.card.MaterialCardView>
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_6sdp"
@@ -165,7 +177,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/type">
 
-                            <org.xapps.apps.mangaxdatabase.views.custom.TypeComboBox
+                            <org.xapps.apps.mangaxdatabase.views.bindings.TypeComboBox
                                 android:id="@+id/cbxType"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -183,7 +195,7 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:hint="@string/demography">
 
-                            <org.xapps.apps.mangaxdatabase.views.custom.DemographyComboBox
+                            <org.xapps.apps.mangaxdatabase.views.bindings.DemographyComboBox
                                 android:id="@+id/cbxDemography"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -201,7 +213,7 @@
                             android:layout_marginTop="@dimen/_12sdp"
                             android:hint="@string/state">
 
-                            <org.xapps.apps.mangaxdatabase.views.custom.StateComboBox
+                            <org.xapps.apps.mangaxdatabase.views.bindings.StateComboBox
                                 android:id="@+id/cbxState"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -211,24 +223,41 @@
                                 app:value="@={viewModel.referenceDetails.state}" />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    </LinearLayout>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    style="@style/TextAppearance.MaterialComponents.Caption"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp"
-                    android:text="@string/genres" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <org.xapps.apps.mangaxdatabase.views.custom.GenreChipGroup
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/genres" />
+
+                    <Button
+                        android:id="@+id/btnSetGenres"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/set_genres"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <org.xapps.apps.mangaxdatabase.views.bindings.GenreChipGroup
                     android:id="@+id/genresChoices"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    app:entries="@{viewModel.genres}"
-                    app:values="@={viewModel.referenceDetails.genres}" />
+                    android:visibility="@{viewModel.referenceDetails.genres != null &amp;&amp; viewModel.referenceDetails.genres.size() > 0 ? View.VISIBLE : View.GONE}"
+                    app:entries="@{viewModel.referenceDetails.genres}" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/txfSynopsisLayout"
@@ -246,30 +275,63 @@
                         android:text="@={viewModel.referenceDetails.reference.synopsis}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:orientation="horizontal">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/txfChaptersLayout"
-                        style="@style/AppTheme.TextField"
+                    <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="@string/chapters"
-                        app:endIconDrawable="@drawable/ic_eye_24dp"
-                        app:startIconDrawable="@drawable/ic_eye_outline_24dp">
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_weight="1">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txfChapters"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/txfChaptersLayout"
+                            style="@style/AppTheme.TextField"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:lines="1"
-                            android:text="1" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_height="match_parent"
+                            android:hint="@string/chapters">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txfChapters"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:lines="1"
+                                android:paddingStart="@dimen/_34sdp"
+                                android:paddingEnd="@dimen/_34sdp"
+                                android:text="1"
+                                android:textAlignment="center"
+                                tools:ignore="HardcodedText" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ImageButton
+                            android:id="@+id/btnMinus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_13sdp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@drawable/ic_minus_24dp"
+                            android:tint="@color/selector_minus_plus_text_color_button" />
+
+                        <ImageButton
+                            android:id="@+id/btnPlus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_24sdp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="@dimen/_13sdp"
+                            android:layout_marginEnd="@dimen/_8sdp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="@drawable/ic_add_24dp"
+                            android:tint="@color/selector_minus_plus_text_color_button" />
+
+                    </RelativeLayout>
 
                     <Space
                         android:layout_width="@dimen/_12sdp"
@@ -277,7 +339,7 @@
 
                     <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/_60sdp"
                         android:layout_weight="1">
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -302,172 +364,205 @@
                             style="@style/Widget.MaterialRatingBar.RatingBar"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:numStars="5"
-                            android:padding="@dimen/_8sdp"
+                            android:padding="@dimen/_6sdp"
                             app:mrb_progressTint="?attr/colorPrimary"
                             app:mrb_secondaryProgressTint="?attr/colorPrimary"
                             app:onFocusChanged="@{ratingFocusListener}" />
 
                     </RelativeLayout>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp"
                     android:orientation="horizontal">
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
-                        <androidx.appcompat.widget.AppCompatTextView
+                        <TextView
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
                             android:text="@string/it_s_stored" />
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="@dimen/_18sdp"
                                 android:layout_height="@dimen/_18sdp"
-                                app:srcCompat="@drawable/ic_folder_outline_24dp"
                                 android:alpha="0.5"
-                                app:tint="?attr/colorOnSurface"/>
+                                app:srcCompat="@drawable/ic_folder_outline_24dp"
+                                app:tint="?attr/colorOnSurface" />
 
                             <com.google.android.material.switchmaterial.SwitchMaterial
                                 android:id="@+id/swtStored"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:checked="@={viewModel.referenceDetails.reference.stored}"
                                 android:theme="@style/AppTheme.SwitchStored"
-                                tools:checked="true"
-                                android:checked="@={viewModel.referenceDetails.reference.stored}"/>
+                                tools:checked="true" />
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="@dimen/_18sdp"
                                 android:layout_height="@dimen/_18sdp"
                                 app:srcCompat="@drawable/ic_folder_24dp"
-                                app:tint="@color/stored"/>
+                                app:tint="@color/stored" />
 
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        </LinearLayout>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    </LinearLayout>
 
                     <Space
                         android:layout_width="@dimen/_12sdp"
                         android:layout_height="wrap_content" />
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
-                        <androidx.appcompat.widget.AppCompatTextView
+                        <TextView
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
                             android:text="@string/has_been_seen" />
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="@dimen/_18sdp"
                                 android:layout_height="@dimen/_18sdp"
-                                app:srcCompat="@drawable/ic_eye_outline_24dp"
                                 android:alpha="0.5"
-                                app:tint="?attr/colorOnSurface"/>
+                                app:srcCompat="@drawable/ic_eye_outline_24dp"
+                                app:tint="?attr/colorOnSurface" />
 
                             <com.google.android.material.switchmaterial.SwitchMaterial
                                 android:id="@+id/swtHasBeenSeen"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:checked="@={viewModel.referenceDetails.reference.hasBeenSeen}"
                                 android:theme="@style/AppTheme.SwitchHasBeenSeen"
-                                tools:checked="true"
-                                android:checked="@={viewModel.referenceDetails.reference.hasBeenSeen}" />
+                                tools:checked="true" />
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="@dimen/_18sdp"
                                 android:layout_height="@dimen/_18sdp"
                                 app:srcCompat="@drawable/ic_eye_24dp"
-                                app:tint="@color/seen"/>
+                                app:tint="@color/seen" />
 
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        </LinearLayout>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    </LinearLayout>
 
                     <Space
                         android:layout_width="@dimen/_12sdp"
                         android:layout_height="wrap_content" />
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
-                        <androidx.appcompat.widget.AppCompatTextView
+                        <TextView
                             style="@style/TextAppearance.MaterialComponents.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_12sdp"
                             android:text="@string/is_favorite" />
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="@dimen/_18sdp"
                                 android:layout_height="@dimen/_18sdp"
-                                app:srcCompat="@drawable/ic_heart_outline_24dp"
                                 android:alpha="0.5"
-                                app:tint="?attr/colorOnSurface"/>
+                                app:srcCompat="@drawable/ic_heart_outline_24dp"
+                                app:tint="?attr/colorOnSurface" />
 
                             <com.google.android.material.switchmaterial.SwitchMaterial
                                 android:id="@+id/swtFavorite"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:checked="@={viewModel.referenceDetails.reference.favorite}"
                                 android:theme="@style/AppTheme.SwitchFavorite"
-                                tools:checked="true"
-                                android:checked="@={viewModel.referenceDetails.reference.favorite}"/>
+                                tools:checked="true" />
 
-                            <androidx.appcompat.widget.AppCompatImageView
+                            <ImageView
                                 android:layout_width="@dimen/_18sdp"
                                 android:layout_height="@dimen/_18sdp"
                                 app:srcCompat="@drawable/ic_heart_24dp"
-                                app:tint="@color/favorite"/>
+                                app:tint="@color/favorite" />
 
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                        </LinearLayout>
 
-                    </androidx.appcompat.widget.LinearLayoutCompat>
+                    </LinearLayout>
 
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                    <TextView
+                        style="@style/TextAppearance.MaterialComponents.Caption"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/authors" />
+
+                    <Button
+                        android:id="@+id/btnSetAuthors"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/set_authors"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <!--                <org.xapps.apps.mangaxdatabase.views.custom.GenreChipGroup-->
+                <!--                    android:id="@+id/genresChoices"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/_4sdp"-->
+                <!--                    android:visibility="@{viewModel.referenceDetails.genres != null &amp;&amp; viewModel.referenceDetails.genres.size() > 0 ? View.VISIBLE : View.GONE}"-->
+                <!--                    app:entries="@{viewModel.genres}"-->
+                <!--                    app:values="@={viewModel.referenceDetails.genres}" />-->
+
+            </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
